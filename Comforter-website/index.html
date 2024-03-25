@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comforters Galore</title>
+    <style>
+        /* background photo */
+        body {
+            background-image: url('./images/comforter.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            margin: 0; 
+        }
+        #taskBar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .taskBarItem {
+            cursor: pointer;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .taskBarItem:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+
+   <strong> <h1 style="color:Tan;">Comforters Galore</h1> </strong>
+
+   <input type="text" id="search" placeholder="Search...">
+  <button onclick="search()">Search</button>
+  <p id="output"></p>
+
+  <script>
+    function search() {
+      // Get the value from the input element
+      var searchTerm = document.getElementById('search').value;
+
+      // Perform some processing or logic based on the search term
+      // For example, you can use an if-else statement or a switch statement
+
+      // Simulate a simple example by checking for specific search terms
+      if (searchTerm === 'King') {
+        document.getElementById('output').innerHTML = 'Search term matched: King';
+      } else if (searchTerm === 'Color') {
+        document.getElementById('output').innerHTML = 'Search term matched: Full';
+      } else {
+        document.getElementById('output').innerHTML = 'No matching result for the search item: ' + searchTerm;
+      
+    }
+  </script>
+   <div id="taskBar">
+   
+</div>
+
+<script>
+    // task bar items
+    const taskBarItems = [
+        { name: 'Comfy', action: () => alert('Sold out!') },
+        { name: 'Stylish', action: () => alert('Sold out!') },
+        { name: 'Bed in bags', action: () => alert('Sold out!') }
+    ];
+
+    // Function to create task bar 
+    function createTaskBarItems() {
+        const taskBarElement = document.getElementById('taskBar');
+        taskBarItems.forEach(item => {
+            const taskBarItem = document.createElement('div');
+            taskBarItem.textContent = item.name;
+            taskBarItem.classList.add('taskBarItem');
+            taskBarItem.addEventListener('click', item.action);
+            taskBarElement.appendChild(taskBarItem);
+        });
+    }
+
+    //  create task bar items
+    createTaskBarItems();
+</script>
+</body>
+
+</html>
